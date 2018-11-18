@@ -63,6 +63,19 @@ class Graph
 				cout<<"Vertex "<<u<<" has been colored as BLACK, with distance from source vertex "<<s<<" is: "<<distance[u]<<endl;
 			}
 		}
+		/*Function to print shortest path from source vertex s to vertex v assuming BFS(s) has already been done*/
+		void printPath(int s, int v)
+		{
+			if(v == s)
+				cout<<s<<" ";
+			else if(parent[v] == -1)
+					cout<<"No path from vertex "<<s<<" to vertex "<<v<<endl;
+			else
+			{
+				printPath(s, parent[v]);
+				cout<<v<<" ";
+			}
+		}
 };
 
 int main()
@@ -91,5 +104,6 @@ int main()
     G.addEdge(7, 6);
     G.addEdge(7, 3);
     G.BFS(source);//Perform BFS from a sources vertex
+    G.printPath(source, 6);
 	return 0;
 }
