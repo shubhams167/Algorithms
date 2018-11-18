@@ -20,12 +20,12 @@ class Graph
 			pre.resize(n);
 			post.resize(n);
 		}
-		//Function to add a directed edge between vertex v1 and v2
+		/*Function to add a directed edge between vertex v1 and v2*/
 		void addEdge(int v1, int v2)
 		{
 			adjList[v1].push_back(v2);
 		}
-		
+		/*Helper function to perform DFS on every vertex*/
 		void DFS()
 		{
 			for(int u = 0; u < n; u++)
@@ -38,7 +38,7 @@ class Graph
 				if(visited[u] == WHITE)
 					DFSvisit(u);
 		}
-		
+		/*Recursive function to perform DFS from vertex u*/
 		void DFSvisit(int u)
 		{
 			time++;//Increment time since vertex u has just been discovered
