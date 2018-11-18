@@ -1,24 +1,29 @@
 # Algorithms 
 
-* Breadth-first fearch algorithm:
+* Breadth-first search algorithm:
 
 ```
 BFS(G,s)
-	bool visited[G.V]
-	QUEUE Q = EMPTY
 	for each vertex u in G = (V, E) - {s}
-		visited[u] = false
-	visited[s] = true
+		visited[u] = WHITE
+		distance[u] = INF
+		parent[u] = NIL
+	visited[s] = GRAY
+	parent[s] = NIL
+	distance[s] = 0
 	ENQUEUE(Q, s)
 	while Q not EMPTY
 		u = DEQUEUE(Q)
 		for each vertex v in G.adjList[u]
-			if visited[v] = false
+			if visited[v] = WHITE
+				visited[v] = GRAY
+				parent[v] = u
+				distance[v] = distance[u] + 1
 				ENQUEUE(Q, v)
 		visited[u] = true
 ```
 
-* Depth-first search algoritm:
+* Depth-first search algorithm:
 
 ```
 DFS(G)
